@@ -1,0 +1,51 @@
+//: Playground - noun: a place where people can play
+
+import UIKit
+
+/*
+
+==================
+    MINI RETO:
+
+Carlos Hidalgo
+07/12/2015
+==================
+
+serie de 100 numero del 0 al 10, imprimir los 100 números
+
+y decidir por 4 reglas>
+1. divisible entre 5, imprimir numero + Bingo
+2. si es par, imprimir numero + par
+3. si es impar, imprimir numero + impar
+4. si se encuentra entre rango de 30 a 40, imprimir número + Viva Swift
+
+*/
+
+var numeros = 0...100
+
+let bingo = "#Bingo!!!";
+let par = "#par!!!";
+let impar = "#impar!!!";
+let viva = "#Viva Swift!!!";
+
+for numero in numeros{
+    
+   // switch numero{
+    if numero % 5 == 0{
+        print(numero,bingo)
+        
+    }
+    if numero % 2 == 0{
+        print(numero,par)
+        
+    }
+    if numero % 2 != 0{
+        print(numero,impar)
+
+    }
+    if numero >= 30 && numero <= 40{
+        print(numero,viva)
+        
+    }
+    
+}
