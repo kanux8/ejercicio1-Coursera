@@ -1,0 +1,92 @@
+//: Mini Reto Semana 4
+
+// Carlos Hidalgo
+// 26/12/20015
+
+/*
+====================================
+  Velocímetro de Automóvil digital
+====================================
+
+1. Declarar la enumeración: Velocidades, valores tipo Int
+    . Apagado = 0
+    . VelocidadBaja = 20
+    . VelocidadMedia = 50
+    . VelocidadAlta = 120
+
+* declarar inicializador que recibe velocidad
+    . init(velocidadInicial: Velocidades)
+    . asignar a self el valor de VelocidadInicial
+
+2. Declarar la clase Auto, con los siguientes atributos:
+    . variable que sea una instancia de la enumeración Velocidades, llamada: velocidad
+
+* las funciones o metodos que define la clase Auto son:
+    .init(), agrega funcion inicializadora que crea instancia de Velocidades: Velocidad, debe iniciar en Apagado.
+
+    . func cambioDeVelocidad() -> (actual: int, velocidadEnCadena: String)
+    cambia el valor de la velocidad a la siguiente velocidad gradual
+
+3. Crearinstancia de la clase Auto, llamada auto
+   Iterar 20 veces usando un for, llamar a cambioDeVelocidad e imprimir valores
+
+*/
+
+import UIKit
+
+//Declaramos la enumeracion:
+
+enum Velocidades: Int{
+    case Apagado = 0, VelocidadBaja = 20, VelocidadMedia = 50, VelocidadAlta = 120, velocidadInicial
+    
+    //Declaramos el inicializador que recibe Velocidad
+   init? (velocidadInicial: Velocidades){
+        self = velocidadInicial
+    }
+    
+}
+
+//Declaramos la clase auto
+class Auto {
+    //instancia de velocidades
+    var velocidad = Velocidades.init(velocidadInicial: Velocidades.Apagado)
+    
+    // inicializamos en apagado
+    init(){
+        self.velocidad = Velocidades.Apagado
+          }
+    
+    // funcion para cambio de velocidad
+    func cambioDeVelocidad() -> (actual: Int, velocidadEnCadena: String){
+      
+        //recupero el valor inicial
+        let valorActual = velocidad!.rawValue
+        
+            //En cada caso, pinto el valor corespondiente y asigno una velocidad superior, excepto en el último caso
+            switch valorActual{
+            case 0:
+                self.velocidad = Velocidades.VelocidadBaja
+                return (0, "Apagado")
+            case 20:
+                self.velocidad = Velocidades.VelocidadMedia
+                return (20, "Velocidad baja")
+            case 50:
+                self.velocidad = Velocidades.VelocidadAlta
+                return (50, "Velocidad media")
+            case 120:
+                self.velocidad = Velocidades.VelocidadMedia
+                return (120, "Velocidad alta")
+            default:
+                return (99,"ERROR")
+            
+        }
+    }
+}
+
+  //: tests enumeracion
+  var auto = Auto()
+
+  for i in 1..<6{
+    //Imprimo velocidad Inicial
+    print ("\(i). \(auto.cambioDeVelocidad())")
+   }
