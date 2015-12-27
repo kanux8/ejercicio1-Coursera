@@ -86,7 +86,7 @@ class Auto {
   //: tests enumeracion
   var auto = Auto()
 
-  for i in 1..<6{
+  for i in 1..<21{
     //Imprimo velocidad Inicial
     print ("\(i). \(auto.cambioDeVelocidad())")
    }
